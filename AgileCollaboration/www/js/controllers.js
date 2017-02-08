@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($rootScope, $scope, $ionicModal, $timeout,$state) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -16,7 +16,10 @@ angular.module('starter.controllers', [])
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
+
     $scope.modal = modal;
+    CheckCurrentUserLogin();
+
   });
 
   // Triggered in the login modal to close it
@@ -32,13 +35,28 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
+    
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
   };
+
+ 
+
+  function CheckCurrentUserLogin(){
+     
+     $rootScope.currentUser = {};
+     if($rootScope.currentUser != null)
+     {
+        $scope.modal.show();
+     }else
+     {
+        $state.go('app.playlists')
+     }
+  };
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
