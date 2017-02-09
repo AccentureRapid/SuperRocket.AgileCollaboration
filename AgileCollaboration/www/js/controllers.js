@@ -89,15 +89,27 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
       }
   };
 
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
 }])
+.controller('ProjectsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
 
+
+ $scope.$on('onLoginSuccess', function(event,data) {
+		$scope.getMyProjects(data);
+	});
+
+   // Perform the login action when the user submits the login form
+  $scope.getMyProjects = function(data) {
+ 
+      if($rootScope.currentUser.Id > 0)
+      {
+            var user = {};
+            user.userName= data.UserName;
+            agileService.getMyProjects(user).then(function (result) {
+                        $scope.projects = result;
+            });
+      }
+  };
+  
+}])
 .controller('TicketCtrl', function($scope, $stateParams) {
 });

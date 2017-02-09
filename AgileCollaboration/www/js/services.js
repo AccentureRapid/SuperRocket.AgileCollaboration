@@ -9,6 +9,10 @@ angular.module('starter.services', [])
                 getDashBoardViewModel: function (data) {
                     var url = environmentSetting.AgileCollaboration.getDashBoardViewModel;
                     return Restangular.one(url).get(data);
+                } ,
+                getMyProjects: function (data) {
+                    var url = environmentSetting.AgileCollaboration.getMyProjects;
+                    return Restangular.all(url).getList(data);
                 } 
             }
         }
@@ -24,6 +28,12 @@ angular.module('starter.services', [])
 
                 getDashBoardViewModel:function (data) {
                     return agileServiceModel.getDashBoardViewModel(data).then(function (result) {
+                        return result;
+                    })
+                },
+
+                getMyProjects:function (data) {
+                    return agileServiceModel.getMyProjects(data).then(function (result) {
                         return result;
                     })
                 }

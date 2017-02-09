@@ -60,6 +60,16 @@ function($stateProvider, $urlRouterProvider,environmentSettingProvider,Restangul
       }
     })
 
+  .state('app.projects', {
+      url: '/projects',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/projects.html',
+          controller: 'ProjectsCtrl'
+        }
+      }
+    })
+
   .state('app.single', {
     url: '/tickets/:playlistId',
     views: {
