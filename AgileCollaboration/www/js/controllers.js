@@ -92,23 +92,20 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
 }])
 .controller('ProjectsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
 
-
- $scope.$on('onLoginSuccess', function(event,data) {
-		$scope.getMyProjects(data);
-	});
-
    // Perform the login action when the user submits the login form
-  $scope.getMyProjects = function(data) {
+  $scope.getMyProjects = function() {
  
       if($rootScope.currentUser.Id > 0)
       {
             var user = {};
-            user.userName= data.UserName;
+            user.userName= $rootScope.currentUser.UserName;
             agileService.getMyProjects(user).then(function (result) {
                         $scope.projects = result;
             });
       }
   };
+
+    $scope.getMyProjects();
   
 }])
 .controller('TicketCtrl', function($scope, $stateParams) {
