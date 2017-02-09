@@ -30,9 +30,9 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
   };
 
   // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+  // $scope.login = function() {
+  //   $scope.modal.show();
+  // };
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
@@ -63,13 +63,13 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
         $scope.modal.show();
      }else
      {
-        $state.go('app.playlists')
+        $state.go('app.tickets')
      }
   };
 
 }])
 
-.controller('PlaylistsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
+.controller('TicketsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
 
 
  $scope.$on('onLoginSuccess', function(event,data) {
@@ -99,5 +99,5 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
   ];
 }])
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('TicketCtrl', function($scope, $stateParams) {
 });

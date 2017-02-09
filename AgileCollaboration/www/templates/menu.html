@@ -9,7 +9,9 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-nav-view name="menuContent">
+      Test
+    </ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
@@ -17,18 +19,35 @@
       <h1 class="title">Left</h1>
     </ion-header-bar>
     <ion-content>
+      <div class="text-left animated ds-icon-container icon-solid" style="padding: 20px;">
+				<i >
+					<img src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png" ng-src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png"> 
+       </i>
+			</div>
+      <div class="inline label-container flex-container" ng-show="label4.show !== false" ng-class="label4.css">
+				<span>chaoran.wang</span>
+			</div>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/tickets">
+          Dashboard
         </ion-item>
         <ion-item menu-close href="#/app/browse">
-          Browse
+          My Projects
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        <ion-item menu-close href="#/app/tickets/">
+          New Tickets
+        </ion-item>
+         <ion-item menu-close href="#/app/tickets">
+          In Progress Tickets
+        </ion-item>
+         <ion-item menu-close href="#/app/tickets">
+          Defered Tickets
+        </ion-item>
+         <ion-item menu-close href="#/app/tickets">
+          Pending Tickets
+        </ion-item>
+         <ion-item menu-close href="#/app/tickets">
+          Completed Tickets
         </ion-item>
       </ion-list>
     </ion-content>

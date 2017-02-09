@@ -50,27 +50,27 @@ function($stateProvider, $urlRouterProvider,environmentSettingProvider,Restangul
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.tickets', {
+      url: '/tickets',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/tickets.html',
+          controller: 'TicketsCtrl'
         }
       }
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/tickets/:playlistId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        controller: 'TicketCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/tickets');
 
 
   var currentEnvironment = 'LOCAL', //MOCK, LOCAL, DEV, STAGE, PROD
