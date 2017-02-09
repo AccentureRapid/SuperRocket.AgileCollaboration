@@ -1,0 +1,17 @@
+<ion-view view-title="Agile Colloboration">
+  <ion-content>
+    <ion-list>
+        <ion-item ng-repeat="ticket in allTickets" href="#/app/playlists/{{ticket.Id}}">
+         
+          <div class="card">
+          <div class="item item-divider">
+            {{ticket.Name}}
+          </div>
+          <div class="item item-text-wrap">
+             {{ticket.Count}}
+          </div>
+        </div>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
