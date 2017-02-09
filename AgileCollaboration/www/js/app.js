@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','starter.services','starter.controllers','starter.constants.module'])
+angular.module('starter', ['ionic','restangular','starter.services','starter.controllers','starter.constants.module'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,8 +22,8 @@ angular.module('starter', ['ionic','starter.services','starter.controllers','sta
   });
 })
 
-.config(['$stateProvider','$urlRouterProvider','environmentSettingProvider',
-function($stateProvider, $urlRouterProvider,environmentSettingProvider) {
+.config(['$stateProvider','$urlRouterProvider','environmentSettingProvider','RestangularProvider',
+function($stateProvider, $urlRouterProvider,environmentSettingProvider,RestangularProvider) {
   $stateProvider
 
     .state('app', {
@@ -73,21 +73,21 @@ function($stateProvider, $urlRouterProvider,environmentSettingProvider) {
   $urlRouterProvider.otherwise('/app/playlists');
 
 
-      //  var currentEnvironment = 'LOCAL', //MOCK, LOCAL, DEV, STAGE, PROD
-      //       environment = '';
+  var currentEnvironment = 'LOCAL', //MOCK, LOCAL, DEV, STAGE, PROD
+      environment = '';
 
-      //   environmentSettingProvider.setEnvironment(currentEnvironment);
-      //   environment = environmentSettingProvider.$get();
+  environmentSettingProvider.setEnvironment(currentEnvironment);
+  environment = environmentSettingProvider.$get();
 
 
-      //   // Restangular configuration
-      //   var baseUrl = environment.BASE_URL;
-        // RestangularProvider.setBaseUrl(baseUrl);
+  // Restangular configuration
+  var baseUrl = environment.BASE_URL;
+  RestangularProvider.setBaseUrl(baseUrl);
 
-        // RestangularProvider.setDefaultHttpFields({ cache: false });
-        // RestangularProvider.setDefaultHeaders({
-        //     'Content-Type': 'application/json'
-        // });
-        // RestangularProvider.setMethodOverriders(["put", "patch"]);
+  RestangularProvider.setDefaultHttpFields({ cache: false });
+  RestangularProvider.setDefaultHeaders({
+      'Content-Type': 'application/json'
+  });
+  RestangularProvider.setMethodOverriders(["put", "patch"]);
 
 }]);
