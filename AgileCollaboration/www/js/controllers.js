@@ -13,7 +13,7 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
   var vm = this; 
   // Form data for the login modal
   $scope.loginData = {};
-
+  $rootScope.currentUser = {};
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -41,6 +41,7 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
      loginService.login($scope.loginData).then(function (result) {
                 if (result.Id > 0)
                 {
+                  $rootScope.currentUser = result;
                   $timeout(function() {
                     $scope.closeLogin();
                   }, 1000);
@@ -61,8 +62,8 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
 
   function CheckCurrentUserLogin(){
      
-     $rootScope.currentUser = {};
-     if($rootScope.currentUser != null)
+     
+     if($rootScope.currentUser.Id == null)
      {
         $scope.modal.show();
      }else
