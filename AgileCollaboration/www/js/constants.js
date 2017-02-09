@@ -31,7 +31,8 @@ angular.module('starter.constants.module', [])
         },
         config_ENV = {
             AgileCollaboration: {
-                login: 'AgileCollaboration/login'
+                login: 'AgileCollaboration/login',
+                getDashBoardViewModel:'AgileCollaboration/GetDashBoardViewModel',
             }
         },
         config = {

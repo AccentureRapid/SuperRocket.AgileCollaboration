@@ -1,8 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', ['loginService','$rootScope','$scope', '$ionicModal','$timeout','$state','loginService',
+.controller('AppCtrl', ['$rootScope','$scope', '$ionicModal','$timeout','$state','agileService',
 
-function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginService) {
+function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -38,24 +38,19 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
   $scope.doLogin = function() {
 
      console.log('Doing login', $scope.loginData);
-     loginService.login($scope.loginData).then(function (result) {
-                if (result.Id > 0)
-                {
-                  $rootScope.currentUser = result;
-                  $timeout(function() {
-                    $scope.closeLogin();
-                  }, 1000);
-                }else
-                {
-                   alert("login failed please check your username and password.")
-                }
+     agileService.login($scope.loginData).then(function (result) {
+          if (result.Id > 0)
+          {
+            $rootScope.currentUser = result;
+            $scope.$broadcast('onLoginSuccess', result);
+            $timeout(function() {
+              $scope.closeLogin();
+            }, 1000);
+          }else
+          {
+            alert("login failed please check your username and password.")
+          }
      });
-   
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    // $timeout(function() {
-    //   $scope.closeLogin();
-    // }, 1000);
   };
 
  
@@ -74,7 +69,26 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
 
 }])
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('PlaylistsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
+
+
+ $scope.$on('onLoginSuccess', function(event,data) {
+		$scope.getDashBoardViewModel(data);
+	});
+
+   // Perform the login action when the user submits the login form
+  $scope.getDashBoardViewModel = function(data) {
+ 
+      if($rootScope.currentUser.Id > 0)
+      {
+            var user = {};
+            user.userName= data.UserName;
+            agileService.getDashBoardViewModel(user).then(function (result) {
+                        var test = result;
+            });
+      }
+  };
+
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -83,7 +97,7 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
-})
+}])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
