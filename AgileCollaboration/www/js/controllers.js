@@ -38,11 +38,14 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
   $scope.doLogin = function() {
 
      console.log('Doing login', $scope.loginData);
-     var user = {};
-     user.userNameOrEmail="david0718";
-     user.password="daiyuan0411";
-     loginService.login(user).then(function (result) {
-                vm.viewModel = result;
+     loginService.login($scope.loginData).then(function (result) {
+                if (result.Id > 0)
+                {
+                   $scope.modal.hide();
+                }else
+                {
+                   
+                }
      });
    
     // Simulate a login delay. Remove this and replace with your login

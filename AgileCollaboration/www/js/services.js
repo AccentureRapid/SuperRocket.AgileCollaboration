@@ -14,7 +14,7 @@ angular.module('starter.services', [])
             var viewModels = {
                 login: function (data) {
                     return loginServiceModel.login(data).then(function (result) {
-                        $rootScope.User = result[0];
+                        return result;
                     })
                 }
             }
