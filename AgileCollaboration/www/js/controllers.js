@@ -84,7 +84,7 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
             var user = {};
             user.userName= data.UserName;
             agileService.getDashBoardViewModel(user).then(function (result) {
-                        var test = result;
+                        $scope.allTickets = result.AllTickets;
             });
       }
   };
