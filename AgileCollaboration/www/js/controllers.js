@@ -38,8 +38,10 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
   $scope.doLogin = function() {
 
      console.log('Doing login', $scope.loginData);
-
-     loginService.login().then(function (result) {
+     var user = {};
+     user.userNameOrEmail="david0718";
+     user.password="daiyuan0411";
+     loginService.login(user).then(function (result) {
                 vm.viewModel = result;
      });
    

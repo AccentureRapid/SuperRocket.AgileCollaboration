@@ -31,7 +31,7 @@ angular.module('starter.constants.module', [])
         },
         config_ENV = {
             AgileCollaboration: {
-                login: 'api/AgileCollaboration/login'
+                login: 'AgileCollaboration/login'
             }
         },
         config = {
