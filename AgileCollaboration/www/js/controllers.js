@@ -41,18 +41,20 @@ function(loginService, $rootScope, $scope, $ionicModal, $timeout,$state,loginSer
      loginService.login($scope.loginData).then(function (result) {
                 if (result.Id > 0)
                 {
-                   $scope.modal.hide();
+                  $timeout(function() {
+                    $scope.closeLogin();
+                  }, 1000);
                 }else
                 {
-                   
+                   alert("login failed please check your username and password.")
                 }
      });
    
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+    // $timeout(function() {
+    //   $scope.closeLogin();
+    // }, 1000);
   };
 
  
