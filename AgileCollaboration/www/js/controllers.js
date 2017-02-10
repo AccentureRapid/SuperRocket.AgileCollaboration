@@ -115,8 +115,9 @@ function($rootScope,$scope,agileService,$stateParams) {
  
       if($rootScope.currentUser.Id > 0)
       {     
+            var status = $stateParams.ticketId;
             var data = {};
-            data.Status= 1;
+            data.Status= status;
             data.userName= $rootScope.currentUser.UserName;
 
             agileService.search(data).then(function (result) {
