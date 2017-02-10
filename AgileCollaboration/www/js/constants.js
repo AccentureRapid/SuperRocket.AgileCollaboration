@@ -15,7 +15,7 @@ angular.module('starter.constants.module', [])
         },
         LOCAL: {
             ENV: 'LOCAL',
-            BASE_URL: 'http://localhost:8080/api/'
+            BASE_URL: 'http://localhost:8091/api/'
         },
         MOCK: {
             ENV: 'MOCK',
@@ -33,7 +33,8 @@ angular.module('starter.constants.module', [])
             AgileCollaboration: {
                 login: 'AgileCollaboration/login',
                 getDashBoardViewModel:'AgileCollaboration/GetDashBoardViewModel',
-                getMyProjects:'AgileCollaboration/GetMyProjects'
+                getMyProjects:'AgileCollaboration/GetMyProjects',
+                search:'AgileCollaboration/Search'
             }
         },
         config = {

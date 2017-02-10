@@ -13,6 +13,11 @@ angular.module('starter.services', [])
                 getMyProjects: function (data) {
                     var url = environmentSetting.AgileCollaboration.getMyProjects;
                     return Restangular.all(url).getList(data);
+                } ,
+
+                 search: function (data) {
+                    var url = environmentSetting.AgileCollaboration.search;
+                    return Restangular.one(url).get(data);
                 } 
             }
         }
@@ -34,6 +39,12 @@ angular.module('starter.services', [])
 
                 getMyProjects:function (data) {
                     return agileServiceModel.getMyProjects(data).then(function (result) {
+                        return result;
+                    })
+                },
+
+                search:function (data) {
+                    return agileServiceModel.search(data).then(function (result) {
                         return result;
                     })
                 }

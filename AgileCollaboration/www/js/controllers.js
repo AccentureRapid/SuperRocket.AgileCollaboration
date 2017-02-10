@@ -108,5 +108,23 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
     $scope.getMyProjects();
   
 }])
-.controller('TicketCtrl', function($scope, $stateParams) {
-});
+.controller('TicketCtrl', ['$rootScope','$scope','agileService','$stateParams',
+function($rootScope,$scope,agileService,$stateParams) {
+
+   $scope.getCurrentStatusTickets = function() {
+ 
+      if($rootScope.currentUser.Id > 0)
+      {     
+            var data = {};
+            data.Status= 1;
+            data.userName= $rootScope.currentUser.UserName;
+
+            agileService.search(data).then(function (result) {
+                        $scope.tickets = result.Items;
+            });
+      }
+   };
+
+    $scope.getCurrentStatusTickets();
+
+}]);

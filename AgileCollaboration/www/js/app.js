@@ -70,11 +70,11 @@ function($stateProvider, $urlRouterProvider,environmentSettingProvider,Restangul
       }
     })
 
-  .state('app.single', {
-    url: '/tickets/:playlistId',
+  .state('app.ticketList', {
+    url: '/tickets/:ticketId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
+        templateUrl: 'templates/ticketlist.html',
         controller: 'TicketCtrl'
       }
     }
