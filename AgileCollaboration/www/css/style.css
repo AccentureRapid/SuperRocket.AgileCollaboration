@@ -16,6 +16,15 @@
 {
    /*background-color: green;*/
 }
+.bar
+{
+     background-color: #01856e;
+}
+.navi-title
+{
+   color: white; 
+   font-size: 25px;
+}
 .item-profile {
   height: 150px;
   .item-avatar > img:first-child {

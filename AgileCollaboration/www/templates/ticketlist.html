@@ -1,4 +1,10 @@
-<ion-view view-title="Ticket List">
+<ion-view>
+  <ion-nav-bar class="balanced">
+    <ion-nav-back-button></ion-nav-back-button>
+</ion-nav-bar>
+<ion-nav-title>
+    <span class="navi-title">Ticket List</span>
+</ion-nav-title>
   <ion-content>
      <ion-list>
         <ion-item ng-repeat="ticket in tickets" href="#/app/tickets/{{ticket.Id}}">
