@@ -1,1 +1,33 @@
 /* Empty. Add your own CSS if you like */
+.login-header
+{
+    width: 100%;
+}
+.title-container
+{
+    margin: 50px;
+    color: white;
+}
+.title-container .title
+{
+    color: white;
+}
+.icon-container
+{
+   /*background-color: green;*/
+}
+.item-profile {
+  height: 150px;
+  .item-avatar > img:first-child {
+    max-width: 150px;
+    max-height: 150px:
+  }
+}
+
+.balanced{
+    background-color: #01856e;
+}
+.custom-button-balanced{
+    color: white;
+    background-color: #01856e;
+}

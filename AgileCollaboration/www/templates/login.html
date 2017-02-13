@@ -1,12 +1,15 @@
-<ion-modal-view style="background-color:#01856e">
+<ion-modal-view class="balanced">
   <ion-content>
-    <div>
-    <span>
-        <h3 class="title">Agile Collaboration</h3>
-    </span>
-    <span>
-        <img class="icon" src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png" ng-src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png">
-    </span>
+    <div class="login-header">
+    <div class="title-container">
+        <h2 class="title text-center">Agile Collaboration</h>
+    </div>
+
+   <div class="icon-container text-center">
+      <span class="avatar">
+        <img src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png" ng-src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png">
+      </span>
+    </div>
     </div>
     <form ng-submit="doLogin()">
       <div class="list">
@@ -19,7 +22,7 @@
           <input type="password" ng-model="loginData.password">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Login</button>
+          <button class="button button-block custom-button-balanced" type="submit">Login</button>
         </label>
       </div>
     </form>

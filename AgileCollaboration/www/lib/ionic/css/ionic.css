@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -3994,9 +3994,7 @@ a.subdued {
       color: #fff; }
     .bar.bar-dark.bar-footer {
       background-image: linear-gradient(180deg, #111, #111 50%, transparent 50%); }
-  .title {
-    font-family:Consolas;
-    color: white;
+  .bar .title {
     display: block;
     position: absolute;
     top: 0;
@@ -4006,14 +4004,13 @@ a.subdued {
     overflow: hidden;
     margin: 0 10px;
     min-width: 30px;
+    height: 43px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 31px;
+    font-size: 17px;
     font-weight: 500;
-    line-height: 44px; 
-    margin-top:100px!important;
-  }
+    line-height: 44px; }
     .bar .title.title-left {
       text-align: left; }
     .bar .title.title-right {
@@ -6605,19 +6602,13 @@ button.item.item-button-right {
     .item-options .button:before {
       margin: 0 auto; }
 
-.icon {
-    padding-top:40px;
-    padding-left:40%;
-    height:100px;
-    margin-top:130px;
-}
 /**
  * Lists
  * --------------------------------------------------
  */
 .list {
   position: relative;
-  padding-top: 10px;
+  padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 0;
   margin-bottom: 20px; }
