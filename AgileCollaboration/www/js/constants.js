@@ -15,7 +15,7 @@ angular.module('starter.constants.module', [])
         },
         LOCAL: {
             ENV: 'LOCAL',
-            BASE_URL: 'http://localhost:8091/api/'
+            BASE_URL: 'http://localhost:8080/api/'
         },
         MOCK: {
             ENV: 'MOCK',
