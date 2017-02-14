@@ -11,10 +11,9 @@
             {{ticket.Title}}
           </div>
           <div class="item item-text-wrap">
-             Priority ：{{ticket.Priority}} <br/>
-             Status   ：{{ticket.Status}} <br>
-             Description：{{ticket.Description}} 
-
+             Priority ：<span ng-bind-html="ticket.Priority" ></span><br>
+             Status   ：<span ng-bind-html="ticket.Status" ></span><br>
+             Description: <span ng-bind-html="ticket.Description" ></span>
           </div>
         </div>
         </ion-item>
