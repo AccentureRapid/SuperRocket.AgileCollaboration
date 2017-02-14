@@ -7,11 +7,11 @@
         <ion-item ng-repeat="ticket in allTickets" href="#/app/tickets/{{ticket.Id}}">
          
           <div class="card">
-          <div class="item item-divider">
-            {{ticket.Name}}
+          <div class="item item-divider bar bar-balanced  text-center">
+            <span ng-bind-html="ticket.Name"></span>
           </div>
-          <div class="item item-text-wrap">
-             {{ticket.Count}}
+          <div class="item item-text-wrap text-center">
+             <span ng-bind-html="ticket.Count"></span>
           </div>
         </div>
         </ion-item>

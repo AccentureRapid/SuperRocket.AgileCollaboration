@@ -73,26 +73,32 @@ function($rootScope, $scope, $ionicModal, $timeout,$state,agileService) {
 
 
  $scope.$on('onLoginSuccess', function(event,data) {
-		$scope.getDashBoardViewModel(data);
+    
+		$scope.getDashBoardViewModel();
 	});
 
    // Perform the login action when the user submits the login form
-  $scope.getDashBoardViewModel = function(data) {
+  $scope.getDashBoardViewModel = function() {
  
       if($rootScope.currentUser.Id > 0)
       {
             var user = {};
-            user.userName= data.UserName;
+            user.userName= $rootScope.currentUser.UserName;
             agileService.getDashBoardViewModel(user).then(function (result) {
                         $scope.allTickets = result.AllTickets;
             });
       }
   };
 
+  $scope.getDashBoardViewModel();
+
 }])
 .controller('ProjectsCtrl', ['$rootScope','$scope','agileService',function($rootScope,$scope,agileService) {
 
-   // Perform the login action when the user submits the login form
+  $scope.$on('onLoginSuccess', function(event,data) {
+    
+		 $scope.getMyProjects();
+	});
   $scope.getMyProjects = function() {
  
       if($rootScope.currentUser.Id > 0)

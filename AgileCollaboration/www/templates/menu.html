@@ -19,14 +19,17 @@
       <h1 class="title">Agile Collaboration</h1>
     </ion-header-bar>
     <ion-content>
-      <div class="item-profile">
-        <div class="item-avatar">
-					<img width="150px" height="150px" src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png" > 
-          <span>{{currentUser.UserName}}</span>
-        </div>
+      <div class="list">
 
+			<div class="item item-avatar">
+				<img  src="https://uidesigner.accenture.com/resources/587dd0984f04827c50747aac/rocket_launch_128px_1205965_easyicon.net.png" >
+				<div class="col item-text-center">
+            <span>{{currentUser.UserName}}</span>
+        </div>
 			</div>
-      
+
+     </div>
+
       <ion-list>
         <ion-item menu-close href="#/app/tickets">
           Dashboard
@@ -34,19 +37,19 @@
         <ion-item menu-close href="#/app/projects">
           My Projects
         </ion-item>
-        <ion-item menu-close href="#/app/tickets/">
+        <ion-item menu-close href="#/app/tickets/1">
           New Tickets
         </ion-item>
-         <ion-item menu-close href="#/app/tickets">
+         <ion-item menu-close href="#/app/tickets/2">
           In Progress Tickets
         </ion-item>
-         <ion-item menu-close href="#/app/tickets">
+         <ion-item menu-close href="#/app/tickets/3">
           Defered Tickets
         </ion-item>
-         <ion-item menu-close href="#/app/tickets">
+         <ion-item menu-close href="#/app/tickets/4">
           Pending Tickets
         </ion-item>
-         <ion-item menu-close href="#/app/tickets">
+         <ion-item menu-close href="#/app/tickets/5">
           Completed Tickets
         </ion-item>
       </ion-list>
